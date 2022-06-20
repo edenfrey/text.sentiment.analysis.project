@@ -1,2 +1,2 @@
 # text.sentiment.analysis.project
-This is a trial project for sms text analysis to predict mood.
+This is a trial project for SMS text analysis to predict mood.
