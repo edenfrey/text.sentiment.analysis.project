@@ -18,5 +18,23 @@
         "titleBar.inactiveBackground": "#007fff99",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#007fff"
+    "peacock.color": "#007fff",
+    "cSpell.words": [
+        "gensim",
+        "keras",
+        "Keras",
+        "KERAS",
+        "levelname",
+        "LSTM",
+        "Matplot",
+        "matplotlib",
+        "nltk",
+        "pyplot",
+        "Scikit",
+        "sklearn",
+        "stopwords",
+        "Tfidf",
+        "TSNE",
+        "Vectorizer"
+    ]
 }
