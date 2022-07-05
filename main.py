@@ -80,10 +80,10 @@ nltk.download('stopwords')
 # DATASET
 DATASET_COLUMNS = ["target", "ids", "date", "flag", "user", "text"]
 DATASET_ENCODING = "ISO-8859-1"
-TRAIN_SIZE = 0.8
+TRAIN_SIZE = 0.85
 
 # TEXT CLEANING
-TEXT_CLEANING_REGEX =  "@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+"
+TEXT_CLEANING_REGEX =  "@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+" # Ignore tagging, links, and random combinations of characters.
 
 # WORD2VEC 
 W2V_SIZE = 300
@@ -116,3 +116,12 @@ dataset_file_path = os.path.join(dataset_path,dataset_filename)
 df = pd.read_csv(dataset_file_path, encoding =DATASET_ENCODING , names=DATASET_COLUMNS)
 print("Dataset size:", len(df))
 print(df.head(10))
+
+# TODO: Data Pruning 
+# TODO: Text Cleaning
+# TODO: Training
+# TODO: Testing
+# TODO: <Optional> Improvement
+# TODO: Saving Model
+# TODO: Create Discord Bot
+# TODO: Bot Use Model (Application)
