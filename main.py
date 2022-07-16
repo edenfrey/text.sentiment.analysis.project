@@ -46,9 +46,7 @@ DATASET_COLUMNS = ["target", "ids", "date", "flag", "user", "text"]
 DATASET_ENCODING = "ISO-8859-1"
 TRAIN_SIZE = 0.8
 
-# TEXT CLEANING
-TEXT_CLEANING_REGEX = "@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+"
-
+# Default settings for imported libraries
 # WORD2VEC 
 W2V_SIZE = 300
 W2V_WINDOW = 7
@@ -75,7 +73,6 @@ ENCODER_MODEL = "encoder.pkl"
 # Downloading Stop-Words 
 nltk.download('stopwords')
 
-
 # SETUP
 # DATASET
 DATASET_COLUMNS = ["target", "ids", "date", "flag", "user", "text"]
@@ -83,8 +80,9 @@ DATASET_ENCODING = "ISO-8859-1"
 TRAIN_SIZE = 0.85
 
 # TEXT CLEANING
-TEXT_CLEANING_REGEX =  "@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+" # Ignore tagging, links, and random combinations of characters.
+TEXT_CLEANING_RE =  "@\S+|https?:\S+|http?:\S|[^A-Za-z0-9]+" # Ignore tagging, links, and random combinations of characters.
 
+# SETTING FOR IMPORTED LIBRARIES
 # WORD2VEC 
 W2V_SIZE = 300
 W2V_WINDOW = 7
@@ -113,15 +111,25 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 dataset_path = dir_path + "/input"
 dataset_filename = os.listdir(dataset_path)[0]
 dataset_file_path = os.path.join(dataset_path,dataset_filename)
-df = pd.read_csv(dataset_file_path, encoding =DATASET_ENCODING , names=DATASET_COLUMNS)
-print("Dataset size:", len(df))
-print(df.head(10))
+df = pd.read_csv(dataset_file_path, encoding = DATASET_ENCODING , names=DATASET_COLUMNS)
 
-# TODO: Data Pruning 
-# TODO: Text Cleaning
+# TODO: Data Pruning
+# Extract relevant columns (target & text)
+df = df.drop(['ids','date','flag','user'],axis = 1)
+
+# Separate training and testing set
+train_set, test_set = train_test_split(df, test_size=TRAIN_SIZE)
+
+# TODO: Text Cleaning (ONLY TRAIN SET)
+
 # TODO: Training
+
 # TODO: Testing
+
 # TODO: <Optional> Improvement
+
 # TODO: Saving Model
+
 # TODO: Create Discord Bot
+
 # TODO: Bot Use Model (Application)
